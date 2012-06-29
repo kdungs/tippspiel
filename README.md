@@ -4,4 +4,4 @@ An online game of betting on football matches. The game currently runs on [sirco
 
 After publishing the code, I will probably modify it for the upcoming Bundesliga season.
 
-You can find me on Twitter [https://twitter.com/SirCoemgen](@SirCoemgen).
+You can find me on Twitter [@SirCoemgen](https://twitter.com/SirCoemgen).
