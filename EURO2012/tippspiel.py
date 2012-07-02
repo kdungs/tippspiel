@@ -473,7 +473,7 @@ def setup():
 				]
 				db.execute('insert into matches (match_time, match_group, match_team_home, match_team_visitor, match_score_home, match_score_visitor) values (?, ?, ?, ?, -1, -1)', match)
 		# Add user for testing
-		db.execute('insert into users (user_name, user_mail, user_pass, user_score, user_rank, user_role) values (?, ?, ?, 235, 1, 1)', ['Kevin', 'kevin@kads24.eu', "%s:%s" % hash_sha512('Rhabarber5000')])
+		db.execute('insert into users (user_name, user_mail, user_pass, user_score, user_rank, user_role) values (?, ?, ?, 235, 1, 1)', ['Admin', 'your@mail.com', "%s:%s" % hash_sha512('default')])
 		db.commit()
 		print('Done!')
 # -------------------------------------
