@@ -454,7 +454,7 @@ if __name__ == '__main__':
 def setup():
 	print('[Setup tippspiel]')
 	if raw_input('Continue? ') != 'yes':
-		print('Setup borted.')
+		print('Setup aborted.')
 		return
 	with closing(connect_db()) as db:
 		db.text_factory = str
