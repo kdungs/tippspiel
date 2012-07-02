@@ -20,6 +20,8 @@ Please let me know if you have any suggestions or found some bugs.
  * [Flag icons by famfamfam.com](http://www.famfamfam.com/lab/icons/flags/)
  * [Ball icon by artua.com](http://www.artua.com/)
 
+ All external sources included in this project are licensed unter the terms of their respective licenses.
+
 ## License
 This project (or to be more specific: the parts of it that are actually written by me) is licensed under the terms of the [WTFPL](http://sam.zoy.org/wtfpl/). This means that you can do **whatever the fuck you want** to do with this code. However I wouldn't mind attribution.
 
