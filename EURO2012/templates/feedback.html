@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block body %}
+	<h1>Feedback</h1>
+	<div class="span6">
+		<p>
+			Ich sehe dieses Projekt als eine Möglichkeit zu lernen und danke euch dafür, dass ihr mich dabei durch eure Teilnahme unterstützt habt. Da ich plane, das Tippspiel in Zukunft wieder anzubieten (<strong>eventuell</strong> sogar schon für die kommende Bundesligasaison) wäre ich euch sehr verbunden, wenn ihr mir ein kurzes Feedback geben würdet. Was hat euch gefallen? Was könnte/sollte man besser machen? Welche zusätzlichen Features wären wünschenswert?
+		</p>
+		<p>
+			Ihr könnt dazu gerne <a href="http://daringfireball.net/projects/markdown/syntax">Markdown-Syntax</a> verwenden, um mir die Auswertung zu erleichtern.
+		</p>
+		<p>
+			<strong>Vielen Dank!</strong>
+		</p>
+	</div>
+	<form action="/feedback" method="post" class="form-horizontal">
+		<fieldset>
+			<legend>
+				Feedback {% if not text %} abgeben{% else %} bearbeiten{% endif %}.
+			</legend>
+			<div class="control-group">
+				<label class="control-label" for="inputText">
+					Text
+				</label>
+				<div class="controls">
+					<textarea class="span8" rows="10" name="inputText" id="inputText">{{ text if text }}</textarea>
+				</div>
+			</div>
+			<div class="form-actions">
+				<button type="submit" class="btn btn-primary">Feedback speichern</button>
+			</div>
+		</fieldset>
+	</form>
+
+{% endblock %}

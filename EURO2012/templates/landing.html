@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block body %}
+	<div class="row-fluid">
+		<section class="span6 well">
+			<h1>Regeln</h1>
+			<p>
+				Habt Spaß und weint nicht, wenn ihr dieses Spiel oder Deutschland die EM am Ende nicht gewinnt.
+			</p>
+			<p>
+				Auch wenn es schade ist, spielen wir hier ohne Einsatz, da ich nicht für eventuelle Verluste haftbar gemacht werden möchte. Seid euch bewusst, dass ich diese Seite hobbymäßig zur Verfügung stelle und trotz aller Bemühungen nicht garantieren kann, dass technisch alles einwandfrei läuft. Das soll euch aber nicht davon abhalten untereinander private Wetten abzusprechen.
+			</p>
+			<h2>Punktevergabe</h2>
+			<p>Die Punktevergabe ist möglichst einfach gehalten. Die Punkte werden wie folgt vergeben:</p>
+			<dl>
+				<dt>Tendenz</dt>
+				<dd>1 Punkt</dd>
+				<dt>+Differenz</dt>
+				<dd>+1 Punkt</dd>
+				<dt>+Ergebnis</dt>
+				<dd>+1 Punkt</dd>
+			</dl>
+			<p>Hat ein Spieler also beispielsweise <em>2:0</em> bei einem Spiel getippt, das <em>3:1</em> ausgeht, so erhält er <strong>2 Punkte</strong>. Ein Spieler, der bei dem selben Spiel <em>1:3</em> getippt hätte, würde <strong>0 Punkte</strong> erhalten.</p>
+			<p>Ab dem Viertelfinale zählt das Ergebnis nach der <strong>gesamten Spieldauer</strong>, also nach eventueller Verlängerung und Elfmeterschießen. Es macht also wenig Sinn, dabei auf Unentschieden zu tippen.</p>
+		</section>
+		<section class="span6 well">
+			<h1>Info</h1>
+			<p>Das System verwendet:</p>
+			<ul>
+				<li><a href="http://python.org">Python 2.7</a></li>
+				<li><a href="http://flask.pocoo.org/">Flask</a></li>
+				<li><a href="http://jinja.pocoo.org/">Jinja</a></li>
+				<li><a href="http://twitter.github.com/bootstrap/">Bootstrap von Twitter</a></li>
+				<li><a href="http://www.famfamfam.com/lab/icons/flags/">Flaggen-Icons von famfamfam.com</a></li>
+				<li><a href="http://www.artua.com/">Ball auf der Startseite von artua.com</a></li>
+			</ul>
+			<h2>Changelog</h2>
+			<dl>
+				<dt>2012-06-25 10:46</dt>
+				<dd>Gravatar - Avatare in der User-Ansicht hinzugefügt.</dd>
+				<dt>2012-06-19 23:40</dt>
+				<dd>Feedback - Die Möglichkeit, Feedback zu geben wurde hinzugefügt. Nutzung erwünscht!</dd>
+				<dt>2012-06-10 21:52</dt>
+				<dd>Matchansicht - Bei Klick auf das Ergebnis eines abgelaufenen bzw. laufenden Spiels werden alle Tipps für dieses angezeigt.</dd>
+			</dl>
+		</section>
+	</div>
+{% endblock %}

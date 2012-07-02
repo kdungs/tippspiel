@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block body %}
+		<div class="row-fluid">
+			<section class="span12">
+				<h1>Spielplan</h1>
+				<table class="table table-bordered table-striped">
+					<caption>Übersicht über deine Tipps.</caption>
+					<thead>
+						<tr>
+							<th>Gr.</th>
+							<th>Heim</th>
+							<th>Gast</th>
+							<th>Ergebnis</th>
+							<th>Tipp (Punkte)</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for m in matches %}
+						<tr>
+							<td>{{ m.match_group }}</td>
+							<td><img src="{{ url_for('static', filename='img/flags/' + m.match_team_home + '.png') }}" /> {{ m.match_team_home }}</td>
+							<td><img src="{{ url_for('static', filename='img/flags/' + m.match_team_visitor + '.png') }}" /> {{ m.match_team_visitor }}</td>
+							<td>
+								{% if m.tipp_legal %}
+								{{ m.time }}
+								{% else %}
+								<a href="/match/{{ m.match_id }}">
+									{% if m.match_score_home != -1 and m.match_score_visitor != -1 %}
+									{{ m.match_score_home }}:{{ m.match_score_visitor }}
+									{% else %}
+									-:-
+									{% endif %}
+								</a>
+								{% endif %}
+							</td>
+							<td>
+								{% if m.tipp_legal %}
+								<a href="/tipp/{{ m.match_id }}">
+								{% if m.tipp %}
+								{{m.tipp.tipp_score_home}}:{{m.tipp.tipp_score_visitor}}
+								{% else %}
+								Tipp abgeben
+								{% endif %}
+								</a>
+								{% else %}
+								{% if m.tipp %}
+								{{m.tipp.tipp_score_home}}:{{m.tipp.tipp_score_visitor}}
+								{% endif %}
+								({{ m.tipp_points if m.tipp_points else 0 }})
+								{% endif %}
+							</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</section>
+{% endblock %}

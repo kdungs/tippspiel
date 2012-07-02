@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block body %}
+	<h1>Tipp</h1>
+	<form action="/tipp/{{match.match_id}}" method="post" class="form-horizontal">
+		<fieldset>
+			<legend>
+				Tipp {% if not tipp %} abgeben{% else %} bearbeiten{% endif %}.
+			</legend>
+			<div class="control-group">
+				<label class="control-label" for="inputTippHome">
+					<img src="{{ url_for('static', filename='img/flags/' + match.match_team_home + '.png') }}" />
+					{{ match.match_team_home }}
+				</label>
+				<div class="controls">
+					<input type="number" min="0" class="input-small" id="inputTippHome" name="inputTippHome" value="{{ '%d' % tipp.tipp_score_home if tipp else '0' }}" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="inputTippVisitor">
+					<img src="{{ url_for('static', filename='img/flags/' + match.match_team_visitor + '.png') }}" />
+					{{ match.match_team_visitor }}
+				</label>
+				<div class="controls">
+					<input type="number" min="0" class="input-small" id="inputTippVisitor" name="inputTippVisitor" value="{{ '%d' % tipp.tipp_score_visitor if tipp else '0' }}" />
+				</div>
+			</div>
+			<div class="form-actions">
+				<button type="submit" class="btn btn-primary">Tipp speichern</button>
+				<a class="btn btn-danger" href="/schedule">Abbrechen</a>
+			</div>
+		</fieldset>
+	</form>
+
+{% endblock %}

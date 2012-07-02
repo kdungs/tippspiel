@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block body %}
+	<div class="row-fluid">
+		<div class="span9">
+			<h1>Query</h1>
+			<form action="/admin" method="post">
+				<textarea class="span12" name="query" id="query" rows="8">{% if q %}{{ q }}{% endif %}</textarea>
+				<button class="btn btn-primary" type="submit">Execute Query</button>
+				<button class="btn" id="Clear" type="button">Clear</button>
+			</form>
+		</div>
+		<div class="span3">
+			<h2>Random Password</h2>
+			<input type="text" id="PwHere" />
+			<textarea id="HashHere" rows="6"></textarea>
+			<button class="btn" id="GeneratePw">Generate</button>
+		</div>
+	</div>
+	{% if res %}
+	<div class="row-fluid">
+		<h1>Result</h1>
+		<div class="">
+			<pre id="Result">
+{{ res }}
+			</pre>
+		</div>
+	</div>
+	{% endif %}
+
+	<div class="row-fluid">
+		<div class="span9">
+			<h2>Helpers</h2>
+			<ul>
+				<li>
+					<code>select * from users</code>
+				</li>
+				<li>
+					<code>insert into users (user_mail, user_name, user_pass, user_role, user_score, user_rank) values ('', '', '', 0, 0, 1)</code>
+				</li>
+				<li>
+					<code>select * from matches</code>
+				</li>
+				<li>
+					<code>update matches set match_score_home=, match_score_visitor= where match_id=</code>
+				</li>
+			</ul>
+		</div>
+		<div class="span3">
+			<h3>Tasks</h3>
+			<div class="btn-group">
+				<a href="/admin/recalc" class="btn btn-small">Recalculate Points</a>
+				<a href="/admin/backupdb" class="btn btn-small btn-warning">Backup Database</a>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		$(function() {
+			$('#GeneratePw').click(function() {
+				$.getJSON('/admin/randompw', function(data) {
+					$('#PwHere').attr('value', data.clear);
+					$('#HashHere').html(data.hashed);
+				});
+			});
+
+			$('#query').keydown(function(e) {
+				if (e.keyCode === 10 || e.keyCode == 13 && (e.ctrlKey || e.metaKey)) {
+					$(this).parent().submit();
+				}
+			});
+
+			$('code').click(function() {
+				$('#query').html($(this).html());
+			});
+
+			$('#Clear').click(function() {
+				$("#query").html("");
+				if ($("#Result")) {
+					$("#Result").html("");
+				}
+			});
+		});
+	</script>
+{% endblock %}

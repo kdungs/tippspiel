@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+	<title>Tippspiel EM 2012</title>
+
+	<!-- Meta -->
+	<meta charset="utf-8" />
+	<meta name="author" content="Kevin D." />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="robots" content="noindex, nofollow" />
+
+	<!-- Style -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" />
+	<style>
+	body {
+		padding-top: 60px;
+		padding-bottom: 40px;
+	}
+
+	.container {
+		max-width: 940px;
+	}
+	</style>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-responsive.min.css') }}" />
+
+	<!-- HTML5 shim -->
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Script -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<!-- <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script> -->
+	<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+	{% if js %}
+	{% for j in js %}
+	<script src="{{ url_for('static', filename='js/' + j) }}"></script>
+	{% endfor %}
+	{% endif %}
+
+	<!-- Favicons -->
+	<link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+</head>
+<body>
+
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					{% if g.user.is_admin %}<span class="icon-bar"></span>{% endif %}
+				</a>
+				<a class="brand" href="/">Tippspiel EM 2012</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li class="divider-vertical"></li>
+						<li{% if active == 'schedule' %} class="active"{% endif %}>
+							<a href="{{ url_for('schedule') }}"><i class="icon-calendar"></i> Spielplan</a>
+						</li>
+						<li{% if active == 'ranking' %} class="active"{% endif %}>
+							<a href="{{ url_for('ranking') }}"><i class="icon-list"></i> Rangliste</a>
+						</li>
+						<li class="divider-vertical"></li>
+						<li{% if active == 'settings' %} class="active"{% endif %}>
+							<a href="{{ url_for('settings') }}"><i class="icon-wrench"></i> Einstellungen</a>
+						</li>
+						{% if g.user.is_admin %}<li{% if active == 'admin' %} class="active"{% endif %}>
+							<a href="{{ url_for('admin') }}"><i class="icon-wrench"></i> Verwaltung</a>
+						</li>{% endif %}
+						<li>
+							<a href="{{ url_for('logout') }}"><i class="icon-arrow-right"></i> Logout</a>
+						</li>
+						<li class="divider-vertical"></li>
+						<li{% if active == 'feedback' %} class="active"{% endif %}>
+							<a href="{{ url_for('feedback') }}"><span class="label label-important"><i class="icon-fire"></i> Feedback</span></a>
+						</li>
+					</ul>
+				</div>
+				<div class="pull-right">
+					<p class="navbar-text">
+						{{g.user.name}} 
+						<span class="badge badge-success">{{ g.user.rank }}. Platz</span>
+						<span class="badge badge-info">{{g.user.score}} Punkte</span>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container container-fluid">
+
+		<noscript>
+			<div class="alert alert-error">
+				<strong>JavaScript is disabled!</strong> Please enable it, otherwise this tool won't work.
+			</div>
+		</noscript>
+		
+		{% with messages = get_flashed_messages(with_categories=True) %}
+		{% if messages %}
+		{% for category, message in messages %}
+		<div class="alert alert-{{ category }}">
+			<button class="close" data-dismiss="alert">×</button>
+			{{ message }}
+		</div>
+		{% endfor %}
+		{% endif %}
+		{% endwith%}
+
+		{% block body %}{% endblock %}
+
+	</div>
+
+</body>
+</html>

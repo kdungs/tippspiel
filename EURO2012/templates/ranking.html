@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block body %}
+		<div class="row-fluid">
+			<section class="span12">
+				<h1>Rangliste</h1>
+				<table class="table table-bordered table-striped">
+					<caption>Die aktuelle Rangliste.</caption>
+					<thead>
+						<tr>
+							<th>Platz</th>
+							<th>Spieler</th>
+							<th>Punktzahl</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for user in users %}
+						<tr>
+							<td>
+								{% if user.user_id == g.user.id %}
+								<span class="badge badge-success">{{ user.user_rank }}</span>
+								{% else %}
+								{{ user.user_rank }}
+								{% endif %}
+							</td>
+							<td><a href="/user/{{ user.user_id }}">{{ user.user_name }}</a></td>
+							<td>{{ user.user_score }}</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</section>
+		</div>
+{% endblock %}
