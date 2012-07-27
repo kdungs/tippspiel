@@ -1,8 +1,19 @@
 # tippspiel
 An online game of betting on football matches.
 
-## Bundesliga 2012/13
-The development finally started. I will be using [Django](https://www.djangoproject.com/) instead of [Flask](http://flask.pocoo.org/) for this one. You can take a look at the first, really early prototype on the branch [prototyping](tippspiel/tree/prototyping).
+**This code is heavily under development.** Don't expect anything to be running yet.
 
-## EURO 2012
-The code of the version that ran during the EURO 2012 can be found on the branch [euro2012](tippspiel/tree/euro2012).
+## What has been done?
+ * Basic Structure for a Django App
+ * Install script that fetches the schedule from bundesliga.de and installs it into the database.
+
+## How to test the code?
+ * Install [django](https://www.djangoproject.com/).
+ * For the install script you will also have to install [requests](http://docs.python-requests.org/en/latest/index.html).
+ * Setup a basic django project `django-admin.py startproject bundesliga`.
+ * Add `AUTH_PROFILE_MODULE = 'tippspiel.Player` to your settings.py.
+ * Add `'tippspiel',` to the installed apps.
+ * Copy the tippspiel folder into your project's folder.
+ * Run `./manage.py syncdb` and make sure to setup your admin account.
+ * Run `./manage.py shell` and in the shell `from tippspiel import install` and finally `install.install()`.
+ * You should be ready to go.
