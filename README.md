@@ -16,22 +16,21 @@ Everything was kept _really_ simple and implemented in a short period of time. I
 ## Installation
 First, you might want to modify line 476 of `tippspiel.py` to create your own administrative account. The default username is `Admin` and its password `default`. You might also want to set your own `SECRET_KEY` on line 21.
 
-Installation then is as simple as starting python from the command line and running
+Installation then is as simple as starting Python from the command line and running
     
     >>> from tippspiel import setup
     >>> setup()
     [Setup tippspiel]
     Continue? yes
 
-and you are done. The game can then be run locally by just typing
+and you are done. The game can then be run locally (on port 5000) by just executing
 
     $ python tippspiel.py
 
-and the game will run locally on port 5000.
-
+in a shell.
 
 ## External Sources
-The UI hugely benefits from [Twitter's Bootstrap](http://twitter.github.com/bootstrap/) which is licensed under the [http://twitter.github.com/bootstrap/](http://www.apache.org/licenses/LICENSE-2.0) and brings along Glyphicons Free which are licensed under [http://twitter.github.com/bootstrap/](http://creativecommons.org/licenses/by/3.0/). The flag icons are from [famfamfam.com](http://www.famfamfam.com/) and "available for free use for any purpose with no requirement for attribution". The ball icon on the homepage is from [artua.com](http://www.artua.com/freeicons/).
+The UI hugely benefits from [Twitter's Bootstrap](http://twitter.github.com/bootstrap/) which is licensed under the [Apache License v2.0](http://www.apache.org/licenses/LICENSE-2.0) and brings along Glyphicons Free which are licensed under [CC BY 3.0](http://creativecommons.org/licenses/by/3.0/). The flag icons are from [famfamfam.com](http://www.famfamfam.com/) and "available for free use for any purpose with no requirement for attribution". The ball icon on the homepage is from [artua.com](http://www.artua.com/freeicons/).
 
 
 ## License
