@@ -1,7 +1,8 @@
 # tippspiel
+An online game of betting on football matches.
 
-An online game of betting on football matches. The game currently runs on [sircoemgen.pythonanywhere.com](http://sircoemgen.pythonanywhere.com/). The source code will be published here after the EURO2012.
+## Bundesliga 2012/13
+The development finally started. I will be using [Django](https://www.djangoproject.com/) instead of [Flask](http://flask.pocoo.org/) for this one. You can take a look at the first, really early prototype on the branch [prototyping](tree/prototyping).
 
-After publishing the code, I will _probably_ modify it for the upcoming Bundesliga season. If you want to participate in this, please let me know.
-
-You can find me on Twitter [@SirCoemgen](https://twitter.com/SirCoemgen).
+## EURO 2012
+The code of the version that ran during the EURO 2012 can be found on the branch [euro2012](tree/euro2012).
