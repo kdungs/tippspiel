@@ -1,0 +1,10 @@
+{% if matchday %}
+<h1>{{ matchday.number}}. Spieltag</h1>
+{% if matches %}
+<ul>
+    {% for match in matches %}
+    <li>{{ match }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endif %}
