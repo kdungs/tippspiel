@@ -1,0 +1,15 @@
+{% extends "tippspiel/base.html" %}
+{% block body %}
+<div class="page-header">
+  <h1>Spieltage</h1>
+</div>
+
+<ul class="nav nav-pills">
+    {% if matchdays %}
+    {% for m in matchdays %}
+    <li><a href="/tippspiel/matchday/{{ m }}/">{{ m }}</a></li>
+    {% endfor %}
+    {% endif %}
+</ul>
+
+{% endblock %}

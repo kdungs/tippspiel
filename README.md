@@ -6,6 +6,7 @@ An online game of betting on football matches.
 ## What has been done?
  * Basic Structure for a django app
  * Install script that fetches the schedule from bundesliga.de and installs it into the database.
+ * Some first drafts for views
 
 ## How to test the code?
  * Install [django](https://www.djangoproject.com/).

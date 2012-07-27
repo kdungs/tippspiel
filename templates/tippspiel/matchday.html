@@ -1,10 +1,49 @@
-{% if matchday %}
-<h1>{{ matchday.number}}. Spieltag</h1>
-{% if matches %}
-<ul>
-    {% for match in matches %}
-    <li>{{ match }}</li>
-    {% endfor %}
-</ul>
-{% endif %}
-{% endif %}
+{% extends "tippspiel/base.html" %}
+{% block body %}
+<div class="pagination pagination-centered">
+    <ul>
+        {% if number > 1 %}
+        <li><a href="/tippspiel/matchday/{{ number|add:"-1" }}">&laquo;</a></li>
+        {% else %}
+        <li class="disabled"><a href="#">&laquo;</a></li>
+        {% endif %}
+        {% for i in matchday_range %}
+        <li{% if number == i %} class="active"{% endif %}><a href="/tippspiel/matchday/{{ i }}/">{{ i }}</a></li>
+        {% endfor %}
+        {% if number < 35 %}
+        <li><a href="/tippspiel/matchday/{{ number|add:"1" }}">&raquo;</a></li>
+        {% else %}
+        <li class="disabled"><a href="#">&raquo;</a></li>
+        {% endif %}
+    </ul>
+</div>
+<div class="page-header">
+  <h1>{{ number }}. Spieltag</h1>
+</div>
+
+<div class="row-fluid">
+            <section class="span12">
+                <table class="table table-bordered table-striped">
+                    <caption>Übersicht über deine Tipps.</caption>
+                    <thead>
+                        <tr>
+                            <th>Heim</th>
+                            <th>Gast</th>
+                            <th>Ergebnis</th>
+                            <th>Tipp (Punkte)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for m in matches %}
+                        <tr>
+                            <td><abbr title="{{ m.team_home.name }}">{{ m.team_home.handle }}</abbr></td>
+                            <td><abbr title="{{ m.team_visitor.name }}">{{ m.team_visitor.handle }}</abbr></td>
+                            <td>-:-</td>
+                            <td>-:-</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </section>
+
+{% endblock %}
