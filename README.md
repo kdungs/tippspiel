@@ -26,10 +26,10 @@ It has been moved to an own [branch](https://github.com/SirCoemgen/tippspiel/tre
 ## External Sources
 The project includes [jQuery](http://jquery.com/) which is licensed under the [MIT License](http://jquery.org/license/) and [Bootstrap, from Twitter](http://twitter.github.com/bootstrap/) which is licensed under the [Apache License v2.0](http://www.apache.org/licenses/LICENSE-2.0). Bootstrap also includes Icons from Glyphicons Free which are licensed under [CC BY 3.0](http://creativecommons.org/licenses/by/3.0/).
 
-jQuery and Bootstrap are included in the project. They are both licensed under the terms of their respective licenses which are
+jQuery and Bootstrap are included in the project. They are both licensed under the terms of their respective licenses.
 
 ## License
-All of the code in this project, if not stated otherwise, is licensed under the terms of the [MIT License](http://opensource.org/licenses/mit-license.php). 
+All of the code in this project, if not stated otherwise, is licensed under the terms of the [MIT License](MIT-LICENSE.txt). 
 
     The MIT License (MIT)
     Copyright (c) 2012 Kevin D. (https://github.com/SirCoemgen)
