@@ -29,7 +29,7 @@ The project includes [jQuery](http://jquery.com/) which is licensed under the [M
 jQuery and Bootstrap are included in the project. They are both licensed under the terms of their respective licenses.
 
 ## License
-All of the code in this project, if not stated otherwise, is licensed under the terms of the [MIT License](tippspiel/MIT-LICENSE.txt). 
+All of the code in this project, if not stated otherwise, is licensed under the terms of the MIT License.
 
     The MIT License (MIT)
     Copyright (c) 2012 Kevin D. (https://github.com/SirCoemgen)
