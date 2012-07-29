@@ -7,6 +7,7 @@ urlpatterns = patterns('tippspiel.views',
     url(r'^login/$', 'login_page'),
     url(r'^logout/$', 'logout_page'),
 
+    url(r'ranking/$', 'ranking_page'),
     url(r'^player/(?P<player_name>\w+)/$', 'player_page'),
 
     url(r'^matchdays/$', 'matchdays_page'),

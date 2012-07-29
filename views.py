@@ -24,12 +24,26 @@ def logout_page(request):
 
 
 @login_required
+def ranking_page(request):
+    players = Player.objects.order_by('rank')
+    return render_to_response(
+        'tippspiel/ranking.html',
+        {
+            'players': players
+        },
+        context_instance=RequestContext(request)
+    )
+
+
+@login_required
 def player_page(request, player_name):
+    from urllib import urlencode
     p = get_object_or_404(Player, user__username=player_name)
     return render_to_response(
         'tippspiel/player.html',
         {
-            'player': p
+            'player': p,
+            'gravatar': "http://gravatar.com/avatar/%s?s=120" % p.gravatar_hash()
         },
         context_instance=RequestContext(request)
     )
@@ -53,8 +67,8 @@ def matchday_page(request, matchday_number):
     m_range = range(m_nr-4, m_nr+6)
     if m_range[0] < 1:
         m_range = [x-(m_range[0]-1) for x in m_range]
-    elif m_range[-1] > 35:
-        m_range = [x-(m_range[-1]-35) for x in m_range]
+    elif m_range[-1] >= 35:
+        m_range = [x-(m_range[-1]-34) for x in m_range]
     matches = Match.objects.filter(matchday=m_nr)
     return render_to_response(
         'tippspiel/matchday.html',

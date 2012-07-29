@@ -8,7 +8,11 @@ class Player(models.Model):
     """A player is a user in the context of the tippspiel."""
     user = models.OneToOneField(User)
     score = models.IntegerField("The player's score.", default=0)
-    rank = models.IntegerField("The player's rank", default=-1)
+    rank = models.IntegerField("The player's rank", default=1)
+
+    def gravatar_hash(self):
+        from hashlib import md5
+        return md5(self.user.email.lower()).hexdigest()
 
     def __unicode__(self):
         return self.user.username

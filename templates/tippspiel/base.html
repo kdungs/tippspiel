@@ -16,10 +16,6 @@
         padding-top: 60px;
         padding-bottom: 40px;
     }
-
-    .container {
-        max-width: 940px;
-    }
     </style>
     <link rel="stylesheet" href="{% static "bootstrap/css/bootstrap-responsive.min.css" %}" />
 
@@ -30,6 +26,7 @@
 
     <!-- Script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write("<script src=\"{% static "js/jquery.min.js" %}\">\x3C/script>")</script> 
     <script src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>
 </head>
 <body>
@@ -48,6 +45,13 @@
                         <li class="divider-vertical"></li>
                         <li>
                             <a href="/tippspiel/matchdays/"><i class="icon-calendar"></i> Spieltage</a>
+                        </li>
+                        <li>
+                            <a href="/tippspiel/ranking/"><i class="icon-list"></i> Rangliste</a>
+                        </li>
+                        <li class="divider-vertical"></li>
+                        <li>
+                            <a href="/tippspiel/logout/"><i class="icon-arrow-right"></i> Logout</a>
                         </li>
                     </ul>
                 </div>

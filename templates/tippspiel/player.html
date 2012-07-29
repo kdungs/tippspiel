@@ -1,10 +1,12 @@
 {% extends "tippspiel/base.html" %}
 {% block body %}
-    <div class="hero-unit">
-        {% if player %}
-        <h1>{{ player.user.username }}</h1>
-        <p><strong>Rank:</strong> {{ player.rank }}</p>
-        <p><strong>Score:</strong> {{ player.score }}</p>
-        {% endif %}
-    </div>
+{% if player %}
+<div class="page-header">
+    {% if gravatar %}
+    <img src="{{ gravatar }}" alt="Gravatar Avatar von {{ player.user.username }}" class="pull-right" />
+    {% endif %}
+    <h1>{{ player.user.username }}</h1>
+</div>
+
+{% endif %}
 {% endblock %}
