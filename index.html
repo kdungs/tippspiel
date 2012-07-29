@@ -38,36 +38,17 @@
             <hr>
 
             <section id="main_content">
-                <p><strong>This code is heavily under development.</strong> Don't expect anything to be working yet.</p>
-
-                <h2>What has been done?</h2>
-
-                <ul>
-                    <li>Basic Structure for a django app</li>
-                    <li>Install script that fetches the schedule from bundesliga.de and installs it into the database</li>
-                    <li>Some first drafts for views</li>
-                </ul>
-
-                <h2>How to test the code?</h2>
-
-                <ul>
-                    <li>Install <a href="https://www.djangoproject.com/">django</a>.</li>
-                    <li>For the install script you will also have to install <a href="http://docs.python-requests.org/en/latest/index.html">requests</a>.</li>
-                    <li>Setup a basic django project <code>django-admin.py startproject bundesliga</code>.</li>
-                    <li>Add <code>AUTH_PROFILE_MODULE = 'tippspiel.Player</code> to your settings.py.</li>
-                    <li>Add <code>'tippspiel',</code> to the installed apps.</li>
-                    <li>Copy the tippspiel folder into your project's folder.</li>
-                    <li>Run <code>./manage.py syncdb</code> and make sure to setup your admin account.</li>
-                    <li>Run <code>./manage.py shell</code> and in the shell <code>from tippspiel import install</code> and finally <code>install.install()</code>.</li>
-                    <li>You should be ready to go.</li>
-                </ul>
+                <p>
+                    <strong>This code is heavily under development.</strong> Don't expect anything to be working yet.
+                </p>
 
                 <h2>Screenshot</h2>
                 <a href="images/2012-07-28.png"><img src="images/2012-07-28.png" alt="A screenshot from 2012-07-28." /></a>
 
                 <h2>Where's the EURO 2012 version?</h2>
-
-                <p>It has been moved to an own <a href="https://github.com/SirCoemgen/tippspiel/tree/euro2012">branch</a>.</p>
+                <p>
+                    It has been moved to an own <a href="https://github.com/SirCoemgen/tippspiel/tree/euro2012">branch</a>.
+                </p>
             </section>
 
             <footer>
