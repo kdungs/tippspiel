@@ -1,0 +1,132 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-08-01 20:28+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#: templates/tippspiel/base.html:48
+msgid "Matchdays"
+msgstr "Spieltage"
+
+#: templates/tippspiel/base.html:51
+msgid "Ranking"
+msgstr "Rangliste"
+
+#: templates/tippspiel/base.html:55
+msgid "Logout"
+msgstr "Logout"
+
+#: templates/tippspiel/base.html:62
+msgid "place"
+msgstr "Platz"
+
+#: templates/tippspiel/base.html:63
+#: templates/tippspiel/matchday_detail.html:36
+msgid "points"
+msgstr "Punkte"
+
+#: templates/tippspiel/base.html:74 templates/tippspiel/login.html:40
+msgid "JavaScript is disabled!"
+msgstr "JavaScript ist deaktiviert!"
+
+#: templates/tippspiel/base.html:74 templates/tippspiel/login.html:40
+msgid "Please enable it, otherwise this tool won't work."
+msgstr "Bitte aktiviere es, sonst kann dieses "
+
+#: templates/tippspiel/login.html:46
+msgid "Error"
+msgstr "Fehler"
+
+#: templates/tippspiel/login.html:46
+msgid "Your username and password didn't match. Please try again."
+msgstr "Bein Benutername uns Passwort passen nicht zusammen. Bitte versuche es erneut."
+
+#: templates/tippspiel/login.html:52
+msgid "username"
+msgstr "Benutzername"
+
+#: templates/tippspiel/login.html:53
+msgid "password"
+msgstr "Passwort"
+
+#: templates/tippspiel/login.html:54
+msgid "Login"
+msgstr "Login"
+
+#: templates/tippspiel/login.html:64
+msgid "Have fun!"
+msgstr "Viel Spaß!"
+
+#: templates/tippspiel/match_list.html:6
+#, fuzzy
+msgid "matches"
+msgstr "Spieltage"
+
+#: templates/tippspiel/match_list.html:11
+msgid "vs."
+msgstr "gegen"
+
+#: templates/tippspiel/matchday_detail.html:24
+#, fuzzy
+msgid "matchday"
+msgstr "Spieltag"
+
+#: templates/tippspiel/matchday_detail.html:33
+msgid "home"
+msgstr "Heim"
+
+#: templates/tippspiel/matchday_detail.html:34
+msgid "visitor"
+msgstr "Gast"
+
+#: templates/tippspiel/matchday_detail.html:35
+msgid "result"
+msgstr "Ergebnis"
+
+#: templates/tippspiel/matchday_detail.html:36
+msgid "tipp"
+msgstr "Tipp"
+
+#: templates/tippspiel/matchday_list.html:6
+#, fuzzy
+msgid "matchdays"
+msgstr "Spieltage"
+
+#: templates/tippspiel/overview.html:6
+msgid "overview"
+msgstr "Übersicht"
+
+#: templates/tippspiel/player_detail.html:6
+msgid "Gravatar for"
+msgstr "Gravatar für"
+
+#: templates/tippspiel/player_list.html:6
+#, fuzzy
+msgid "ranking"
+msgstr "Rangliste"
+
+#: templates/tippspiel/player_list.html:15
+msgid "rank"
+msgstr "Rang"
+
+#: templates/tippspiel/player_list.html:16
+msgid "player"
+msgstr "Spieler"
+
+#: templates/tippspiel/player_list.html:17
+msgid "score"
+msgstr "Punktzahl"

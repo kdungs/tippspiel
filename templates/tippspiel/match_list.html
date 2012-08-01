@@ -1,0 +1,15 @@
+{% extends "tippspiel/base.html" %}
+{% load i18n staticfiles %}
+{% block body %}
+
+<div class="page-header">
+  <h1>{% trans "matches" %}</h1>
+</div>
+
+<ul>
+{% for match in matches %}
+    <li><a href="{% url tippspiel_match_detail match.pk %}">{{ match.team_home.name }} {% trans "vs." %} {{ match.team_visitor.name }}</a></li>
+{% endfor %}
+</ul>
+
+{% endblock %}

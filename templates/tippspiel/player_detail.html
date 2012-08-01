@@ -1,0 +1,10 @@
+{% extends "tippspiel/base.html" %}
+{% load i18n staticfiles %}
+{% block body %}
+
+<div class="page-header">
+    {% if gravatar %}<img src="{{ gravatar }}" alt="{% trans "Gravatar for" %} {{ player.user.username }}" class="pull-right" />{% endif %}
+    <h1>{{ player.user.username }}</h1>
+</div>
+
+{% endblock %}

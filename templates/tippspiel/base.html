@@ -1,5 +1,6 @@
-{% load staticfiles %}<!DOCTYPE html>
-<html>
+{% load i18n staticfiles %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
 <head>
     <title>tippspiel</title>
 
@@ -44,33 +45,33 @@
                     <ul class="nav">
                         <li class="divider-vertical"></li>
                         <li>
-                            <a href="/tippspiel/matchdays/"><i class="icon-calendar"></i> Spieltage</a>
+                            <a href="/tippspiel/matchdays/"><i class="icon-calendar"></i> {% trans "Matchdays" %}</a>
                         </li>
                         <li>
-                            <a href="/tippspiel/ranking/"><i class="icon-list"></i> Rangliste</a>
+                            <a href="/tippspiel/ranking/"><i class="icon-list"></i> {% trans "Ranking" %}</a>
                         </li>
                         <li class="divider-vertical"></li>
                         <li>
-                            <a href="/tippspiel/logout/"><i class="icon-arrow-right"></i> Logout</a>
+                            <a href="/tippspiel/logout/"><i class="icon-arrow-right"></i> {% trans "Logout" %}</a>
                         </li>
                     </ul>
                 </div>
                 <div class="pull-right">
                     <p class="navbar-text">
                         {{ user.username }}
-                        <span class="badge badge-success">1. Platz</span>
-                        <span class="badge badge-info">0 Punkte</span>
+                        <span class="badge badge-success">1. {% trans "place" %}</span>
+                        <span class="badge badge-info">0 {% trans "points" %}</span>
                     </p>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="container container-fluid">
+    <div class="container-fluid">
 
         <noscript>
             <div class="alert alert-error">
-                <strong>JavaScript is disabled!</strong> Please enable it, otherwise this tool won't work.
+                <strong>{% trans "JavaScript is disabled!" %}</strong> {% trans "Please enable it, otherwise this tool won't work." %}
             </div>
         </noscript>
 

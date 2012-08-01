@@ -1,18 +1,18 @@
 {% extends "tippspiel/base.html" %}
+{% load i18n staticfiles %}
 {% block body %}
+
 <div class="page-header">
-  <h1>Spieltage</h1>
+  <h1>{% trans "matchdays" %}</h1>
 </div>
 
 <div class="row-fluid">
     <section class="span12">
 
         <ul class="nav nav-pills">
-            {% if matchdays %}
             {% for m in matchdays %}
-            <li><a href="/tippspiel/matchday/{{ m }}/">{{ m }}</a></li>
+            <li><a href="{% url tippspiel_matchday_detail m %}">{{ m }}</a></li>
             {% endfor %}
-            {% endif %}
         </ul>
 
     </section>

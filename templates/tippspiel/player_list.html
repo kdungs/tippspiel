@@ -1,0 +1,39 @@
+{% extends "tippspiel/base.html" %}
+{% load i18n staticfiles %}
+{% block body %}
+
+<div class="page-header">
+  <h1>{% trans "ranking" %}</h1>
+</div>
+
+<div class="row-fluid">
+    <section class="span12">
+        <table class="table table-bordered table-striped">
+            <caption>Die aktuelle Rangliste.</caption>
+            <thead>
+                <tr>
+                    <th>{% trans "rank" %}</th>
+                    <th>{% trans "player" %}</th>
+                    <th>{% trans "score" %}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for player in players %}
+                <tr>
+                    <td>
+                        {% if player.user.id == user.id %}
+                        <span class="badge badge-success">{{ player.rank }}</span>
+                        {% else %}
+                        {{ player.rank }}
+                        {% endif %}
+                    </td>
+                    <td><a href="{% url tippspiel_player_detail player_name=player.user.username %}">{{ player.user.username }}</a></td>
+                    <td>{{ player.score }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+</div>
+
+{% endblock %}

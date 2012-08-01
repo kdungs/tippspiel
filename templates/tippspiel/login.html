@@ -1,5 +1,6 @@
-{% load staticfiles %}<!DOCTYPE html>
-<html lang="de">
+{% load i18n staticfiles %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
 <head>
     <title>tippspiel:login</title>
 
@@ -24,7 +25,8 @@
     <![endif]-->
 
     <!-- Script -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>-->
+    <script>window.jQuery || document.write("<script src=\"{% static "js/jquery.min.js" %}\">\x3C/script>")</script> 
     <script src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>
 
     <!-- Favicons -->
@@ -35,11 +37,34 @@
 
         <noscript>
             <div class="alert alert-error">
-                <strong>JavaScript ist deaktiviert!</strong> Bitte aktiviere es, sonst wird diese Website nicht ordentlich funktionieren.
+                <strong>{% trans "JavaScript is disabled!" %}</strong> {% trans "Please enable it, otherwise this tool won't work." %}
             </div>
         </noscript>
 
-        <p>Login!</p>
+        {% if form.errors %}
+        <div class="alert alert-error">
+            <strong>{% trans "Error" %}!</strong> {% trans "Your username and password didn't match. Please try again." %}
+        </div>
+        {% endif %}
+
+        <form class="pull-right form-inline" method="post" action="/tippspiel/login/">
+            {% csrf_token %}
+            <input class="input-small" placeholder="{% trans "username" %}" type="text" name="username" id="id_username" maxlength="30" />
+            <input class="input-small" placeholder="{% trans "password" %}" type="password" name="password" id="id_password" />
+            <button type="submit" class="btn btn-primary">{% trans "Login" %}</button>
+            <input type="hidden" name="next" value="{{ next }}" />
+        </form>
+        <div style="clear: right;"></div>
+
+        <section class="hero-unit">
+            <img class="pull-right" src="{% static "img/ball.png" %}" />
+            <hgroup class="page-header">
+                <h1>tippspiel <small>Bundesliga 2012/13</small></h1>
+            </hgroup>
+            <p><strong>{% trans "Have fun!" %}</strong></p>
+        </section>
+
+    </div>
         
 </body>
 </html>
