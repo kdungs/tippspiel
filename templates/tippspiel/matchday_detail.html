@@ -10,7 +10,7 @@
         <li class="disabled"><a href="#">&laquo;</a></li>
         {% endif %}
         {% for i in matchday_range %}
-        <li{% if number == i %} class="active"{% endif %}><a href="/tippspiel/matchday/{{ i }}/">{{ i }}</a></li>
+        <li{% if number == i %} class="active"{% else %} class="hidden-phone"{% endif %}><a href="/tippspiel/matchday/{{ i }}/">{{ i }}</a></li>
         {% endfor %}
         {% if number < 34 %}
         <li><a href="/tippspiel/matchday/{{ number|add:"1" }}">&raquo;</a></li>
@@ -26,27 +26,43 @@
 
 <div class="row-fluid">
     <div class="span12">
-        <table class="table table-bordered table-striped">
-            <caption>Übersicht über deine Tipps.</caption>
-            <thead>
-                <tr>
-                    <th>{% trans "home" %}</th>
-                    <th>{% trans "visitor" %}</th>
-                    <th>{% trans "result" %}</th>
-                    <th>{% trans "tipp" %} ({% trans "points" %})</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for m in matches %}
-                <tr>
-                    <td><abbr title="{{ m.team_home.name }}">{{ m.team_home.handle }}</abbr></td>
-                    <td><abbr title="{{ m.team_visitor.name }}">{{ m.team_visitor.handle }}</abbr></td>
-                    <td>-:-</td>
-                    <td>-:-</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+        <form action="" method="post">
+            {% csrf_token %}
+            <table class="table table-bordered table-striped">
+                <caption>{% trans "Your tipps for this matchday." %}</caption>
+                <thead>
+                    <tr>
+                        <th>{% trans "home" %}</th>
+                        <th>{% trans "visitor" %}</th>
+                        <th>{% trans "result" %}</th>
+                        <th>{% trans "tipp" %} ({% trans "points" %})</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for m in matches %}
+                    <tr>
+                        <td>
+                            <img src="{% static "img/emblems/25/" %}{{ m.team_home.handle }}.png" />
+                            <abbr title="{{ m.team_home.name }}">{{ m.team_home.handle }}</abbr>
+                        </td>
+                        <td>
+                            <img src="{% static "img/emblems/25/" %}{{ m.team_visitor.handle }}.png" />
+                            <abbr title="{{ m.team_visitor.name }}">{{ m.team_visitor.handle }}</abbr>
+                        </td>
+                        <td>
+                            {% if m.score_home == -1 or m.score_visitor == -1 %}
+                            {{ m.date|date:'Y-m-d H:i' }}
+                            {% else %}
+                            {{ m.score_home }}:{{ m.score_visitor }}
+                            {% endif %}
+                        </td>
+                        <td> <input type="text" class="input-small" style="margin: 0;" value="" placeholder="0:0" /> </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <button type="submit" class="pull-right btn btn-large btn-primary">{% trans "save" %}</button>
+        </form>
     </div>
 </div>
 

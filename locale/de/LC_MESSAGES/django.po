@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-01 20:28+0200\n"
+"POT-Creation-Date: 2012-08-01 23:33+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,32 +18,32 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
-#: templates/tippspiel/base.html:48
+#: templates/tippspiel/base.html:51
 msgid "Matchdays"
 msgstr "Spieltage"
 
-#: templates/tippspiel/base.html:51
+#: templates/tippspiel/base.html:54
 msgid "Ranking"
 msgstr "Rangliste"
 
-#: templates/tippspiel/base.html:55
+#: templates/tippspiel/base.html:58
 msgid "Logout"
 msgstr "Logout"
 
-#: templates/tippspiel/base.html:62
+#: templates/tippspiel/base.html:65
 msgid "place"
 msgstr "Platz"
 
-#: templates/tippspiel/base.html:63
+#: templates/tippspiel/base.html:66
 #: templates/tippspiel/matchday_detail.html:36
 msgid "points"
 msgstr "Punkte"
 
-#: templates/tippspiel/base.html:74 templates/tippspiel/login.html:40
+#: templates/tippspiel/base.html:77 templates/tippspiel/login.html:40
 msgid "JavaScript is disabled!"
 msgstr "JavaScript ist deaktiviert!"
 
-#: templates/tippspiel/base.html:74 templates/tippspiel/login.html:40
+#: templates/tippspiel/base.html:77 templates/tippspiel/login.html:40
 msgid "Please enable it, otherwise this tool won't work."
 msgstr "Bitte aktiviere es, sonst kann dieses "
 
@@ -53,7 +53,9 @@ msgstr "Fehler"
 
 #: templates/tippspiel/login.html:46
 msgid "Your username and password didn't match. Please try again."
-msgstr "Bein Benutername uns Passwort passen nicht zusammen. Bitte versuche es erneut."
+msgstr ""
+"Dein Benutername uns Passwort passen nicht zusammen. Bitte versuche es "
+"erneut."
 
 #: templates/tippspiel/login.html:52
 msgid "username"
@@ -84,6 +86,10 @@ msgstr "gegen"
 #, fuzzy
 msgid "matchday"
 msgstr "Spieltag"
+
+#: templates/tippspiel/matchday_detail.html:30
+msgid "Your tipps for this matchday."
+msgstr "Deine Tipps für diesen Spieltag."
 
 #: templates/tippspiel/matchday_detail.html:33
 msgid "home"
@@ -118,6 +124,10 @@ msgstr "Gravatar für"
 #, fuzzy
 msgid "ranking"
 msgstr "Rangliste"
+
+#: templates/tippspiel/player_list.html:12
+msgid "The current ranking."
+msgstr "Die aktuelle Rangliste."
 
 #: templates/tippspiel/player_list.html:15
 msgid "rank"
