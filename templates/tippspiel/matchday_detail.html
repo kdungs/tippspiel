@@ -43,11 +43,11 @@
                     <tr>
                         <td>
                             <img src="{% static "img/emblems/25/" %}{{ m.team_home.handle }}.png" />
-                            <abbr title="{{ m.team_home.name }}">{{ m.team_home.handle }}</abbr>
+                            <abbr rel="tooltip" title="{{ m.team_home.name }}">{{ m.team_home.handle }}</abbr>
                         </td>
                         <td>
                             <img src="{% static "img/emblems/25/" %}{{ m.team_visitor.handle }}.png" />
-                            <abbr title="{{ m.team_visitor.name }}">{{ m.team_visitor.handle }}</abbr>
+                            <abbr rel="tooltip" title="{{ m.team_visitor.name }}">{{ m.team_visitor.handle }}</abbr>
                         </td>
                         <td>
                             {% if m.score_home == -1 or m.score_visitor == -1 %}
@@ -65,5 +65,11 @@
         </form>
     </div>
 </div>
+
+<script>
+    $(function() {
+        $("[rel=tooltip]").tooltip();
+    });
+</script>
 
 {% endblock %}
