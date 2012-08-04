@@ -7,8 +7,8 @@ from tippspiel.models import Player, Team, Match, Tipp
 
 
 urlpatterns = patterns('django.contrib.auth',
-    url(r'^login/$', 'views.login', {'template_name': 'tippspiel/login.html'}),
-    url(r'^logout/$', 'views.logout_then_login'),
+    url(r'^login/$', 'views.login', {'template_name': 'tippspiel/login.html'}, name="login"),
+    url(r'^logout/$', 'views.logout_then_login', name="logout"),
 )
 
 urlpatterns += patterns('tippspiel.views',
@@ -65,5 +65,11 @@ urlpatterns += patterns('tippspiel.views',
         r'^player/(?P<player_name>\w+)/$',
         'player_detail',
         name="tippspiel_player_detail"
+    ),
+
+    url(
+        r'^settings/$',
+        login_required(TemplateView.as_view(template_name='tippspiel/overview.html')),
+        name="tippspiel_settings"
     )
 )

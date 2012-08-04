@@ -1,8 +1,8 @@
-{% load i18n staticfiles %}
+{% load i18n staticfiles activepage %}
 <!DOCTYPE html>
 <html lang="{{ LANGUAGE_CODE }}">
 <head>
-    <title>tippspiel:login</title>
+    <title>tippspiel :: login</title>
 
     <!-- Meta -->
     <meta charset="utf-8" />
@@ -11,13 +11,7 @@
     <meta name="robots" content="noindex, nofollow" />
 
     <!-- Style -->
-    <link rel="stylesheet" href="{% static "bootstrap/css/bootstrap.min.css" %}" />
-    <link rel="stylesheet" href="{% static "bootstrap/css/bootstrap-responsive.min.css" %}" />
-    <style>
-        body {
-            padding: 20px 0;
-        }
-    </style>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0-alpha.1/jquery.mobile-1.2.0-alpha.1.min.css" />
 
     <!-- HTML5 shim -->
     <!--[if lt IE 9]>
@@ -25,46 +19,55 @@
     <![endif]-->
 
     <!-- Script -->
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>-->
-    <script>window.jQuery || document.write("<script src=\"{% static "js/jquery.min.js" %}\">\x3C/script>")</script> 
-    <script src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>
+    <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.2.0-alpha.1/jquery.mobile-1.2.0-alpha.1.min.js"></script>
 
-    <!-- Favicons -->
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{% static "img/favicon.ico" %}" type="image/x-icon" />
 </head>
 <body>
 
-    <div class="container-fluid">
+    <noscript>
+        <p>
+            <strong>{% trans "JavaScript is disabled!" %}</strong> {% trans "Please enable it, otherwise this app won't work." %}
+        </p>
+    </noscript>
 
-        <noscript>
-            <div class="alert alert-error">
-                <strong>{% trans "JavaScript is disabled!" %}</strong> {% trans "Please enable it, otherwise this tool won't work." %}
-            </div>
-        </noscript>
+    <div data-role="page">
+
+        <header data-role="header">
+            <h1>tippspiel</h1>
+        </header>
 
         {% if form.errors %}
-        <div class="alert alert-error">
-            <strong>{% trans "Error" %}!</strong> {% trans "Your username and password didn't match. Please try again." %}
+        <div class="ui-bar ui-bar-e">
+            <p><strong>{% trans "Error" %}!</strong> {% trans "Your username and password didn't match. Please try again." %}</p>
         </div>
         {% endif %}
 
-        <form class="pull-right form-inline" method="post" action="/tippspiel/login/">
-            {% csrf_token %}
-            <input class="input-small" placeholder="{% trans "username" %}" type="text" name="username" id="id_username" maxlength="30" />
-            <input class="input-small" placeholder="{% trans "password" %}" type="password" name="password" id="id_password" />
-            <button type="submit" class="btn btn-primary">{% trans "Login" %}</button>
-            <input type="hidden" name="next" value="{{ next }}" />
-        </form>
-        <div style="clear: right;"></div>
-
-        <section class="hero-unit">
-            <img class="pull-right" src="{% static "img/ball.png" %}" />
-            <hgroup class="page-header">
-                <h1>tippspiel <small>Bundesliga 2012/13</small></h1>
-            </hgroup>
-            <p><strong>{% trans "Have fun!" %}</strong></p>
+        <section data-role="content">
+            <form method="post" action="{% url login %}">
+                {% csrf_token %}
+                <ul data-role="listview">
+                    <li>
+                        <input class="input-small" placeholder="{% trans "Username" %}" type="text" name="username" id="id_username" maxlength="30" value="{{ request.POST.username }}" />
+                    </li>
+                    <li>
+                        <input class="input-small" placeholder="{% trans "Password" %}" type="password" name="password" id="id_password" />
+                    </li>
+                    <li>
+                        <button type="submit" data-theme="b">{% trans "Login" %}</button>
+                        <input type="hidden" name="next" value="{{ next }}" />
+                    </li>
+                </ul>
+            </form>
         </section>
 
+        <footer data-role="footer">
+            <h4></h4>
+        </footer>
+
     </div>
-        
+
 </body>
 </html>

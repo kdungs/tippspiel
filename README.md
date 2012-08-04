@@ -11,6 +11,7 @@ It has been moved to an own [branch](https://github.com/SirCoemgen/tippspiel/tre
  * Basic Structure for a django app
  * Install script that fetches the schedule from bundesliga.de and installs it into the database.
  * Some first drafts for views
+ * Switched from bootstrap to jQuery Mobile
 
 ## How to test the code?
  * Install [django](https://www.djangoproject.com/).
@@ -24,9 +25,9 @@ It has been moved to an own [branch](https://github.com/SirCoemgen/tippspiel/tre
  * You should be ready to go.
 
 ## External Sources
-The project includes [jQuery](http://jquery.com/) which is licensed under the [MIT License](http://jquery.org/license/) and [Bootstrap, from Twitter](http://twitter.github.com/bootstrap/) which is licensed under the [Apache License v2.0](http://www.apache.org/licenses/LICENSE-2.0). Bootstrap also includes Icons from Glyphicons Free which are licensed under [CC BY 3.0](http://creativecommons.org/licenses/by/3.0/).
+The project makes use of [jQuery](http://jquery.com/), [jQuery Mobile](http://jquerymobile.com/) and [django](https://www.djangoproject.com/). None of these are included in the project. Django has to be installed on the server, the jQuery files are loaded from the jQuery CDN.
 
-jQuery and Bootstrap are included in the project. They are both licensed under the terms of their respective licenses.
+The icons of the teams are property of their respective owners. They are not included in the project. However there is a script in `tippspiel/static/img/emblems` called `emblems.py` which allows you to download them from a website. You have to be aware, that you might not be allowed to use them.
 
 ## License
 All of the code in this project, if not stated otherwise, is licensed under the terms of the MIT License.

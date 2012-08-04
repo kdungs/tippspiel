@@ -1,39 +1,21 @@
 {% extends "tippspiel/base.html" %}
-{% load i18n staticfiles %}
+{% load i18n staticfiles gravatar %}
 {% block body %}
 
-<div class="page-header">
-  <h1>{% trans "ranking" %}</h1>
-</div>
+<header data-role="header" data-position="fixed">
+    <h1>{% trans "Ranking" %}</h1>
+</header>
 
-<div class="row-fluid">
-    <section class="span12">
-        <table class="table table-bordered table-striped">
-            <caption>{% trans "The current ranking." %}</caption>
-            <thead>
-                <tr>
-                    <th>{% trans "rank" %}</th>
-                    <th>{% trans "player" %}</th>
-                    <th>{% trans "score" %}</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for player in players %}
-                <tr>
-                    <td>
-                        {% if player.user.id == user.id %}
-                        <span class="badge badge-success">{{ player.rank }}</span>
-                        {% else %}
-                        {{ player.rank }}
-                        {% endif %}
-                    </td>
-                    <td><a href="{% url tippspiel_player_detail player_name=player.user.username %}">{{ player.user.username }}</a></td>
-                    <td>{{ player.score }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </section>
-</div>
+<section data-role="content">
+    <ul data-role="listview" data-filter="true">
+    {% for player in players %}
+        <li><a href="{% url tippspiel_player_detail player_name=player.user.username %}">
+            {% gravatar_img player %}
+            <h3>{{ player.rank }}. {{ player.user.username }}</h3>
+            <p>{{ player.score }} {% trans "points" %}</p>
+        </a></li>
+    {% endfor %}
+    </ul>
+</section>
 
 {% endblock %}

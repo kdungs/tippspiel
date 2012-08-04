@@ -2,14 +2,16 @@
 {% load i18n staticfiles %}
 {% block body %}
 
-<div class="page-header">
-  <h1>{% trans "matches" %}</h1>
-</div>
+<header data-role="header" data-position="fixed">
+    <h1>{% trans "matches" %}</h1>
+</header>
 
-<ul>
-{% for match in matches %}
-    <li><a href="{% url tippspiel_match_detail match.pk %}">{{ match.team_home.name }} {% trans "vs." %} {{ match.team_visitor.name }}</a></li>
-{% endfor %}
-</ul>
+<section data-role="content">
+    <ul data-role="listview" data-filter="true">
+    {% for match in matches %}
+        <li><a href="{% url tippspiel_match_detail match.pk %}">{{ match.team_home.name }} {% trans "vs." %} {{ match.team_visitor.name }}</a></li>
+    {% endfor %}
+    </ul>
+</section>
 
 {% endblock %}

@@ -2,8 +2,11 @@
 {% load i18n staticfiles %}
 {% block body %}
 
-<div class="page-header">
-  <h1>{{ match }}</h1>
-</div>
+<header data-role="header" data-position="fixed">
+    <h1>{{ match }}</h1>
+</header>
+
+<section data-role="content">
+</section>
 
 {% endblock %}

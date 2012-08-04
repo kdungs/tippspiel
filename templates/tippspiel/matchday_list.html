@@ -2,20 +2,16 @@
 {% load i18n staticfiles %}
 {% block body %}
 
-<div class="page-header">
-  <h1>{% trans "matchdays" %}</h1>
-</div>
+<header data-role="header" data-position="fixed">
+    <h1>{% trans "Matchdays" %}</h1>
+</header>
 
-<div class="row-fluid">
-    <section class="span12">
-
-        <ul class="nav nav-pills">
-            {% for m in matchdays %}
-            <li><a href="{% url tippspiel_matchday_detail m %}">{{ m }}</a></li>
-            {% endfor %}
-        </ul>
-
-    </section>
-</div>
+<section data-role="content">
+    <ul data-role="listview" data-filter="true">
+        {% for m in matchdays %}
+        <li><a href="{% url tippspiel_matchday_detail m %}">{{ m }}</a></li>
+        {% endfor %}
+    </ul>
+</section>
 
 {% endblock %}

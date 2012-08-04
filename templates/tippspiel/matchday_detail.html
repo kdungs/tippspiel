@@ -2,74 +2,47 @@
 {% load i18n staticfiles %}
 {% block body %}
 
-<div class="pagination pagination-centered">
-    <ul>
+<header data-role="header" data-position="fixed">
         {% if number > 1 %}
-        <li><a href="/tippspiel/matchday/{{ number|add:"-1" }}">&laquo;</a></li>
-        {% else %}
-        <li class="disabled"><a href="#">&laquo;</a></li>
+        <a data-role="button" data-icon="arrow-l" data-inline="true" data-iconpos="notext" href="{% url tippspiel_matchday_detail matchday_number=number|add:"-1" %}">Previous</a>
         {% endif %}
-        {% for i in matchday_range %}
-        <li{% if number == i %} class="active"{% else %} class="hidden-phone"{% endif %}><a href="/tippspiel/matchday/{{ i }}/">{{ i }}</a></li>
-        {% endfor %}
+        <h1 style="text-align: center;">{{ number }}. {% trans "Matchday" %}</h1>
         {% if number < 34 %}
-        <li><a href="/tippspiel/matchday/{{ number|add:"1" }}">&raquo;</a></li>
-        {% else %}
-        <li class="disabled"><a href="#">&raquo;</a></li>
+        <a data-role="button" data-icon="arrow-r" data-inline="true" data-iconpos="notext" class="ui-btn-right" href="{% url tippspiel_matchday_detail matchday_number=number|add:"1" %}">Next</a>
         {% endif %}
+</header>
+
+<section data-role="content">
+    <form action="{% url tippspiel_matchday_detail number %}" method="post">
+    {% csrf_token %}
+    <ul data-role="listview">
+        {% for match in matches %}
+        <li>
+            <div class="ui-grid-b">
+                <div class="ui-block-a">
+                    <img src="{% static "img/emblems/80/" %}{{ match.team_home.handle}}.png" alt="{{ match.team_home.handle }}" title="{{ match.team_home.name }}" />
+                </div>
+                <div class="ui-block-b">
+                    <p style="text-align: center; font-size: small; padding-top: 5px;">
+                        {% if match.score_home == -1 or match.score_visitor == -1 %}
+                        {{ match.date|date:'Y-m-d H:i' }}
+                        {% else %}
+                        {{ match.score_home }}:{{ match.score_visitor }}
+                        {% endif %}
+                    </p>
+                    <input data-mini="true" style="text-align: center;" type="text" placeholder="0:0" id="Tipp-{{ match.id }}" name="Tipp-{{ match.id }}" />
+                </div>
+                <div class="ui-block-c" style="text-align: right;">
+                    <img src="{% static "img/emblems/80/" %}{{ match.team_visitor.handle}}.png" alt="{{ match.team_visitor.handle }}" title="{{ match.team_visitor.name }}" />
+                </div>
+            </div>
+        </li>
+        {% endfor %}
+        <li>
+            <input type="submit" data-icon="check" data-iconpos="right" data-theme="b" value="{% trans "Save" %}" />
+        </li>
     </ul>
-</div>
-
-<div class="page-header">
-  <h1>{{ number }}. {% trans "matchday" %}</h1>
-</div>
-
-<div class="row-fluid">
-    <div class="span12">
-        <form action="" method="post">
-            {% csrf_token %}
-            <table class="table table-bordered table-striped">
-                <caption>{% trans "Your tipps for this matchday." %}</caption>
-                <thead>
-                    <tr>
-                        <th>{% trans "home" %}</th>
-                        <th>{% trans "visitor" %}</th>
-                        <th>{% trans "result" %}</th>
-                        <th>{% trans "tipp" %} ({% trans "points" %})</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for m in matches %}
-                    <tr>
-                        <td>
-                            <img src="{% static "img/emblems/25/" %}{{ m.team_home.handle }}.png" />
-                            <abbr rel="tooltip" title="{{ m.team_home.name }}">{{ m.team_home.handle }}</abbr>
-                        </td>
-                        <td>
-                            <img src="{% static "img/emblems/25/" %}{{ m.team_visitor.handle }}.png" />
-                            <abbr rel="tooltip" title="{{ m.team_visitor.name }}">{{ m.team_visitor.handle }}</abbr>
-                        </td>
-                        <td>
-                            {% if m.score_home == -1 or m.score_visitor == -1 %}
-                            {{ m.date|date:'Y-m-d H:i' }}
-                            {% else %}
-                            {{ m.score_home }}:{{ m.score_visitor }}
-                            {% endif %}
-                        </td>
-                        <td> <input type="text" class="input-small" style="margin: 0;" value="" placeholder="0:0" /> </td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-            <button type="submit" class="pull-right btn btn-large btn-primary">{% trans "save" %}</button>
-        </form>
-    </div>
-</div>
-
-<script>
-    $(function() {
-        $("[rel=tooltip]").tooltip();
-    });
-</script>
+    </form>
+</section>
 
 {% endblock %}
