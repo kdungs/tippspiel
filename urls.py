@@ -36,7 +36,7 @@ urlpatterns = patterns('django.contrib.auth',
 urlpatterns += patterns('tippspiel.views',
     url(
         r'^$',
-        login_required(TemplateView.as_view(template_name='tippspiel/overview.html')),
+        'overview',
         name="tippspiel_overview"
     ),
 

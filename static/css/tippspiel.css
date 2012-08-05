@@ -1,3 +1,27 @@
+.tippspiel_overview_header {
+    border: 0px solid #ccc;
+}
+
+.tippspiel_overview_header h1 {
+    display: inline-block;
+}
+
+.tippspiel_overview_header .badges {
+    float: right;
+}
+
+.tippspiel_overview_header .rank,
+.tippspiel_overview_header .score {
+    background: #eee;
+    border: 1px solid #ccc;
+    border-radius: 14px;
+    color: #666;
+    display: inline-block;
+    margin-right: .5em;
+    padding: 4px 8px; 
+    text-shadow: none;
+}
+
 .tippspiel_match_date {
     font-size: small;
     margin-top: 5px;

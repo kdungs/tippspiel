@@ -13,13 +13,16 @@
             <a href="{% url password_change %}">{% trans "Change your password" %}</a>
         </li>
         <li>
-            <a href="https://gravatar.com">{% trans "Change your avatar at gravatar.com" %}</a>
+            <a rel="external" href="https://gravatar.com">{% trans "Change your avatar at gravatar.com" %}</a>
         </li>
         <li>
             <a href="{% url logout %}">{% trans "Logout" %}</a>
         </li>
         {% if user.is_staff %}
         <li data-role="list-divider">Staff</li>
+        <li>
+            <a rel="external" href="/admin/">Admin area</a>
+        </li>
         <li data-theme="e">
             <a href="{% url tippspiel_staff_update_scores_and_ranks %}">Update scores and ranks</a>
         </li>

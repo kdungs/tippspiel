@@ -1,5 +1,5 @@
 {% extends "tippspiel/base.html" %}
-{% load i18n staticfiles %}
+{% load i18n staticfiles gravatar %}
 {% block body %}
 
 <header data-role="header" data-position="fixed">
@@ -7,15 +7,37 @@
 </header>
 
 <section data-role="content">
-    <p>
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-    </p>
-    <p>
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-    </p>
-    <p>
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-    </p>
+
+    <div class="tippspiel_overview_header">
+        <h1>Welcome back, {{ user.username }}!</h1>
+        <div class="badges">
+            <p class="rank">{{ player.rank }}. {% trans "place" %}</p>
+            <p class="score">{{ player.score }} {% trans "points" %}</p>
+        </div>
+    </div>
+
+    <ul data-role="listview" data-inset="true">
+        <li data-role="list-divider">Upcoming Matchdays</li>
+        {% for upcoming_matchday in upcoming_matchdays %}
+        <li>
+            <a href="{% url tippspiel_matchday_detail matchday_number=upcoming_matchday %}">{{ upcoming_matchday}}. {% trans "Matchday" %}</a>
+        </li>
+        {% empty %}
+        <li>{% trans "No upcoming matchdays" %}.</li>
+        {% endfor %}
+    </ul>
+
+    <ul data-role="listview" data-inset="true">
+        <li data-role="list-divider">Top {{ top_players|length }} Players</li>
+        {% for tp in top_players %}
+        <li{% ifequal tp.pk user.pk %} data-theme="e"{% endifequal %}><a href="{% url tippspiel_player_detail player_name=tp.user.username %}">
+            {% gravatar_img tp %}
+            <h3>{{ tp.rank }}. {{ tp.user.username }}</h3>
+            <span class="ui-li-count">{{ tp.score }} {% trans "points" %}</span>
+        </a></li>
+        {% endfor %}
+    </ul>
+    
 </section>
 
 {% endblock %}

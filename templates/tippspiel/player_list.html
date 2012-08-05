@@ -9,7 +9,7 @@
 <section data-role="content">
     <ul data-role="listview" data-filter="true">
     {% for player in players %}
-        <li><a href="{% url tippspiel_player_detail player_name=player.user.username %}">
+        <li{% ifequal player.pk user.pk %} data-theme="e"{% endifequal %}><a href="{% url tippspiel_player_detail player_name=player.user.username %}">
             {% gravatar_img player %}
             <h3>{{ player.rank }}. {{ player.user.username }}</h3>
             <span class="ui-li-count">{{ player.score }} {% trans "points" %}</span>

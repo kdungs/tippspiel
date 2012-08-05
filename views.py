@@ -13,6 +13,24 @@ from tippspiel.models import Player, Team, Match, Tipp
 
 import re
 
+
+@login_required
+def overview(request):
+    player = get_object_or_404(Player, user=request.user)
+    top_players = Player.objects.order_by('score').reverse()[:3]
+    upcoming_matchday = Match.objects.filter(date__gt=timezone.now()).order_by('date')[0].matchday
+    upcoming_matchdays = filter(lambda x: x<35, [upcoming_matchday+i for i in (0, 1, 2)])
+    return render_to_response(
+        'tippspiel/overview.html',
+        {
+            'player': player,
+            'top_players': top_players,
+            'upcoming_matchdays': upcoming_matchdays
+        },
+        context_instance=RequestContext(request)
+    )
+
+
 @login_required
 @csrf_protect
 def matchday_detail(request, matchday_number):
