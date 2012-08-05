@@ -1,0 +1,15 @@
+{% load i18n staticfiles %}
+            <div class="ui-grid-b">
+                <div class="ui-block-a">
+                    <img src="{% static "img/emblems/80/" %}{{ match.team_home.handle}}.png" alt="{{ match.team_home.handle }}" title="{{ match.team_home.name }}" />
+                </div>
+                <div class="ui-block-b">
+                        <p class="tippspiel_match_date">
+                            {{ match.date|date:'Y-m-d H:i' }}
+                        </p>
+                        <input type="text" data-mini="true" style="text-align: center;" id="Tipp-{{ match.id }}" name="Tipp-{{ match.id }}" placeholder="{% if tipp %}{{ tipp.score_home }}:{{ tipp.score_visitor }}{% else %}-:-{% endif %}" />
+                </div>
+                <div class="ui-block-c" style="text-align: right;">
+                    <img src="{% static "img/emblems/80/" %}{{ match.team_visitor.handle}}.png" alt="{{ match.team_visitor.handle }}" title="{{ match.team_visitor.name }}" />
+                </div>
+            </div>

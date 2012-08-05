@@ -1,0 +1,28 @@
+{% load i18n staticfiles %}
+            <a href="{% url tippspiel_match_detail match.pk %}">
+                <div class="ui-grid-b">
+                    <div class="ui-block-a">
+                        <img src="{% static "img/emblems/80/" %}{{ match.team_home.handle}}.png" alt="{{ match.team_home.handle }}" title="{{ match.team_home.name }}" />
+                    </div>
+                    <div class="ui-block-b">
+                        
+                        <p class="tippspiel_match_result">
+                                {% if match.score_home == -1 or match.score_visitor == -1 %}
+                                -:-
+                                {% else %}
+                                {{ match.score_home }}:{{ match.score_visitor }}
+                                {% endif %}
+                        </p>
+                        <p class="tippspiel_tipp_result">
+                                {% if tipp %}
+                                {{ tipp.score_home }}:{{ tipp.score_visitor }} ({{ tipp.points }})
+                                {% else %}
+                                -:- (0 {% trans "points" %})
+                                {% endif %}
+                        </p>
+                    </div>
+                    <div class="ui-block-c" style="text-align: right;">
+                        <img src="{% static "img/emblems/80/" %}{{ match.team_visitor.handle}}.png" alt="{{ match.team_visitor.handle }}" title="{{ match.team_visitor.name }}" />
+                    </div>
+                </div>
+            </a>

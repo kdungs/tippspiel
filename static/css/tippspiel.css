@@ -1,0 +1,18 @@
+.tippspiel_match_date {
+    font-size: small;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.tippspiel_match_result {
+    color: #333;
+    font-size: x-large;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.tippspiel_tipp_result {
+    color: #060;
+    font-size: x-large;
+    text-align: center;
+}

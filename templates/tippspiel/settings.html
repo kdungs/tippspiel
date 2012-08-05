@@ -1,0 +1,30 @@
+{% extends "tippspiel/base.html" %}
+{% load i18n staticfiles %}
+{% block body %}
+
+
+<header data-role="header" data-position="fixed">
+    <h1>{% trans "Settings" %}</h1>
+</header>
+
+<section data-role="content">
+    <ul data-role="listview">
+        <li>
+            <a href="{% url password_change %}">{% trans "Change your password" %}</a>
+        </li>
+        <li>
+            <a href="https://gravatar.com">{% trans "Change your avatar at gravatar.com" %}</a>
+        </li>
+        <li>
+            <a href="{% url logout %}">{% trans "Logout" %}</a>
+        </li>
+        {% if user.is_staff %}
+        <li data-role="list-divider">Staff</li>
+        <li data-theme="e">
+            <a href="{% url tippspiel_staff_update_scores_and_ranks %}">Update scores and ranks</a>
+        </li>
+        {% endif %}
+    </ul>
+</section>
+
+{% endblock %}
