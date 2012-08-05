@@ -7,8 +7,30 @@ from tippspiel.models import Player, Team, Match, Tipp
 
 
 urlpatterns = patterns('django.contrib.auth',
-    url(r'^login/$', 'views.login', {'template_name': 'tippspiel/login.html'}, name="login"),
-    url(r'^logout/$', 'views.logout_then_login', name="logout"),
+    url(
+        r'^login/$',
+        'views.login',
+        {
+            'template_name': 'tippspiel/login.html'
+        },
+        name="login"
+    ),
+   
+    url(
+        r'^logout/$',
+        'views.logout_then_login',
+        name="logout"
+    ),
+    
+    url(
+        r'^changepw/$',
+        'views.password_change',
+        {
+            'template_name': 'tippspiel/password_change.html',
+            'post_change_redirect' : '/tippspiel/settings/'
+        },
+        name="password_change"
+    ),
 )
 
 urlpatterns += patterns('tippspiel.views',
@@ -44,10 +66,8 @@ urlpatterns += patterns('tippspiel.views',
     ),
 
     url(
-        r'^match/(?P<pk>\d+)/$',
-        login_required(DetailView.as_view(
-            model=Match
-        )),
+        r'^match/(?P<match_id>\d+)/$',
+        'match_detail',
         name="tippspiel_match_detail"
     ),
 
@@ -69,7 +89,14 @@ urlpatterns += patterns('tippspiel.views',
 
     url(
         r'^settings/$',
-        login_required(TemplateView.as_view(template_name='tippspiel/overview.html')),
+        'settings',
         name="tippspiel_settings"
-    )
+    ),
+
+    url(
+        r'update_scores_and_ranks/$',
+        'update_scores_and_ranks',
+        name="tippspiel_staff_update_scores_and_ranks"
+    ),
+
 )

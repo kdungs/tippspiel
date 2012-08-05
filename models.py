@@ -14,6 +14,13 @@ class Player(models.Model):
         from hashlib import md5
         return md5(self.user.email.lower()).hexdigest()
 
+    def update_score(self):
+        tipps = Tipp.objects.filter(player=self)
+        score = 0
+        for tipp in tipps:
+            score += tipp.points()
+        self.score = score
+
     def __unicode__(self):
         return self.user.username
 
@@ -48,7 +55,7 @@ class Match(models.Model):
 
     def has_started(self):
         return self.date <= timezone.now()
-
+        
     
     def __unicode__(self):
         return '%s %d:%d %s' % (self.team_home.handle, self.score_home, self.score_visitor, self.team_visitor.handle)

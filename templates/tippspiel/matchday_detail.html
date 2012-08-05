@@ -1,5 +1,5 @@
 {% extends "tippspiel/base.html" %}
-{% load i18n staticfiles %}
+{% load i18n dicthelpers %}
 {% block body %}
 
 <header data-role="header" data-position="fixed">
@@ -17,29 +17,18 @@
     {% csrf_token %}
     <ul data-role="listview">
         {% for match in matches %}
+        {% with tipp=tipps|lookup:match.pk %}
         <li>
-            <div class="ui-grid-b">
-                <div class="ui-block-a">
-                    <img src="{% static "img/emblems/80/" %}{{ match.team_home.handle}}.png" alt="{{ match.team_home.handle }}" title="{{ match.team_home.name }}" />
-                </div>
-                <div class="ui-block-b">
-                    <p style="text-align: center; font-size: small; padding-top: 5px;">
-                        {% if match.score_home == -1 or match.score_visitor == -1 %}
-                        {{ match.date|date:'Y-m-d H:i' }}
-                        {% else %}
-                        {{ match.score_home }}:{{ match.score_visitor }}
-                        {% endif %}
-                    </p>
-                    <input data-mini="true" style="text-align: center;" type="text" placeholder="0:0" id="Tipp-{{ match.id }}" name="Tipp-{{ match.id }}" />
-                </div>
-                <div class="ui-block-c" style="text-align: right;">
-                    <img src="{% static "img/emblems/80/" %}{{ match.team_visitor.handle}}.png" alt="{{ match.team_visitor.handle }}" title="{{ match.team_visitor.name }}" />
-                </div>
-            </div>
+            {% if match.has_started %}
+            {% include "tippspiel/match/matchday_detail_match_started.html" %}
+            {% else %}
+            {% include "tippspiel/match/matchday_detail_match_not_started.html" %}
+            {% endif %}
         </li>
+        {% endwith %}
         {% endfor %}
         <li>
-            <input type="submit" data-icon="check" data-iconpos="right" data-theme="b" value="{% trans "Save" %}" />
+            <button type="submit" data-icon="check" data-iconpos="right" data-theme="b">{% trans "Save" %}</button>
         </li>
     </ul>
     </form>

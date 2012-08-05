@@ -9,8 +9,13 @@
 <section data-role="content">
     <ul data-role="listview" data-filter="true">
         {% for m in matchdays %}
-        <li><a href="{% url tippspiel_matchday_detail m %}">{{ m }}</a></li>
+        <li>
+            <a href="{% url tippspiel_matchday_detail m %}">{{ m }}</a>
+        </li>
         {% endfor %}
+        <li data-theme="a">
+            <a href="{% url tippspiel_match_list %}">{% trans "All matches" %}</a>
+        </li>
     </ul>
 </section>
 

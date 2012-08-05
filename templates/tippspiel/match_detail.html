@@ -1,12 +1,28 @@
 {% extends "tippspiel/base.html" %}
-{% load i18n staticfiles %}
+{% load i18n staticfiles gravatar %}
 {% block body %}
 
 <header data-role="header" data-position="fixed">
+    <a href="{% url tippspiel_matchday_detail matchday_number=match.matchday %}" data-icon="arrow-l">{{ match.matchday }}. {% trans "Matchday" %}</a>
     <h1>{{ match }}</h1>
 </header>
 
 <section data-role="content">
+    <ul data-role="listview">
+        {% for tipp in tipps %}
+        <li>
+            <a href="{% url tippspiel_player_detail player_name=tipp.player.user.username %}">
+            {% gravatar_img tipp.player %}
+            {{ tipp.player.rank }}. {{ tipp.player.user.username }}
+            <p class="tippspiel_tipp_result">
+                {{ tipp.score_home }}:{{ tipp.score_visitor }} ({{ tipp.points }})
+            </p>
+            </a>
+        </li>
+        {% empty %}
+        <li>{% trans "There are no tipps for display. "%}</li>
+        {% endfor %}
+    </ul>
 </section>
 
 {% endblock %}

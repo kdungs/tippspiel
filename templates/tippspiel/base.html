@@ -12,6 +12,7 @@
 
     <!-- Style -->
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0-alpha.1/jquery.mobile-1.2.0-alpha.1.min.css" />
+    <link rel="stylesheet" href="{% static "css/tippspiel.css" %}" />
 
     <!-- HTML5 shim -->
     <!--[if lt IE 9]>
@@ -38,14 +39,10 @@
         {% block body %}{% endblock %}
 
         <footer data-role="footer" data-id="Persistency" data-position="fixed">
-            <div data-role="navbar" data-iconpos="left">
+            <div data-role="navbar" data-iconpos="top">
                 <ul>
                     <li>{% activepage_with_icon request "tippspiel_overview" "Overview" "home" %}</li>
                     <li>{% activepage_with_icon request "tippspiel_matchday_list" "Matchdays" "grid" %}</li>
-                </ul>
-            </div>
-            <div data-role="navbar" data-iconpos="left">
-                <ul>
                     <li>{% activepage_with_icon request "tippspiel_player_list" "Ranking" "star" %}</li>
                     <li>{% activepage_with_icon request "tippspiel_settings" "Settings" "gear" %}</li>
                 </ul>

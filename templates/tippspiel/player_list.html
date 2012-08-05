@@ -12,7 +12,7 @@
         <li><a href="{% url tippspiel_player_detail player_name=player.user.username %}">
             {% gravatar_img player %}
             <h3>{{ player.rank }}. {{ player.user.username }}</h3>
-            <p>{{ player.score }} {% trans "points" %}</p>
+            <span class="ui-li-count">{{ player.score }} {% trans "points" %}</span>
         </a></li>
     {% endfor %}
     </ul>

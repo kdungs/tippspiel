@@ -1,7 +1,5 @@
-from django import template
+from django.template.defaultfilters import register
 from django.utils.translation import ugettext_lazy as _
-
-register = template.Library()
 
 @register.simple_tag
 def gravatar(player, size=120):
