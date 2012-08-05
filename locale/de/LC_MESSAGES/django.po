@@ -1,142 +1,146 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Copyright (C) 2012 Kevin D. (https://github.com/SirCoemgen)
+# This file is distributed under the same license as the tippspiel package.
+# Kevin D. (https://github.com/SirCoemgen), 2012.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: tippspiel 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-01 23:33+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"POT-Creation-Date: 2012-08-06 01:19+0200\n"
+"PO-Revision-Date: 2012-08-06 00:59+0200\n"
+"Last-Translator: Kevin D. (https://github.com/SirCoemgen)\n"
+"Language-Team: \n"
+"Language: Deutsch \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
-#: templates/tippspiel/base.html:51
-msgid "Matchdays"
-msgstr "Spieltage"
 
-#: templates/tippspiel/base.html:54
-msgid "Ranking"
-msgstr "Rangliste"
 
-#: templates/tippspiel/base.html:58
-msgid "Logout"
-msgstr "Logout"
-
-#: templates/tippspiel/base.html:65
-msgid "place"
-msgstr "Platz"
-
-#: templates/tippspiel/base.html:66
-#: templates/tippspiel/matchday_detail.html:36
-msgid "points"
-msgstr "Punkte"
-
-#: templates/tippspiel/base.html:77 templates/tippspiel/login.html:40
+#: templates/tippspiel/base.html:33 templates/tippspiel/login.html:32
 msgid "JavaScript is disabled!"
 msgstr "JavaScript ist deaktiviert!"
 
-#: templates/tippspiel/base.html:77 templates/tippspiel/login.html:40
-msgid "Please enable it, otherwise this tool won't work."
-msgstr "Bitte aktiviere es, sonst kann dieses "
+#: templates/tippspiel/base.html:33 templates/tippspiel/login.html:32
+msgid "Please enable it, otherwise this app won't work."
+msgstr "Bitte aktiviere es, da diese App sonst nicht funktioniert."
 
-#: templates/tippspiel/login.html:46
+#: templates/tippspiel/login.html:44
 msgid "Error"
 msgstr "Fehler"
 
-#: templates/tippspiel/login.html:46
+#: templates/tippspiel/login.html:44
 msgid "Your username and password didn't match. Please try again."
 msgstr ""
-"Dein Benutername uns Passwort passen nicht zusammen. Bitte versuche es "
-"erneut."
-
-#: templates/tippspiel/login.html:52
-msgid "username"
-msgstr "Benutzername"
+"Benutzername und Passwort passen nicht zusammen. Bitte versuche es erneut."
 
 #: templates/tippspiel/login.html:53
-msgid "password"
+msgid "Username"
+msgstr "Benutzername"
+
+#: templates/tippspiel/login.html:56
+msgid "Password"
 msgstr "Passwort"
 
-#: templates/tippspiel/login.html:54
+#: templates/tippspiel/login.html:59
 msgid "Login"
 msgstr "Login"
 
-#: templates/tippspiel/login.html:64
-msgid "Have fun!"
-msgstr "Viel Spaß!"
+#: templates/tippspiel/match_detail.html:6
+#: templates/tippspiel/matchday_detail.html:9
+#: templates/tippspiel/overview.html:23
+msgid "Matchday"
+msgstr "Spieltag"
+
+#: templates/tippspiel/match_detail.html:23
+msgid "There are no tipps for display."
+msgstr "Es sind keine Tipps zum Anzeigen vorhanden."
 
 #: templates/tippspiel/match_list.html:6
-#, fuzzy
 msgid "matches"
-msgstr "Spieltage"
+msgstr "Spiele"
 
-#: templates/tippspiel/match_list.html:11
+#: templates/tippspiel/match_list.html:12
 msgid "vs."
 msgstr "gegen"
 
-#: templates/tippspiel/matchday_detail.html:24
-#, fuzzy
-msgid "matchday"
-msgstr "Spieltag"
-
-#: templates/tippspiel/matchday_detail.html:30
-msgid "Your tipps for this matchday."
-msgstr "Deine Tipps für diesen Spieltag."
-
-#: templates/tippspiel/matchday_detail.html:33
-msgid "home"
-msgstr "Heim"
-
-#: templates/tippspiel/matchday_detail.html:34
-msgid "visitor"
-msgstr "Gast"
-
-#: templates/tippspiel/matchday_detail.html:35
-msgid "result"
-msgstr "Ergebnis"
-
-#: templates/tippspiel/matchday_detail.html:36
-msgid "tipp"
-msgstr "Tipp"
+#: templates/tippspiel/matchday_detail.html:31
+#: templates/tippspiel/password_change.html:27
+msgid "Save"
+msgstr "Speichern"
 
 #: templates/tippspiel/matchday_list.html:6
-#, fuzzy
-msgid "matchdays"
+msgid "Matchdays"
 msgstr "Spieltage"
 
-#: templates/tippspiel/overview.html:6
-msgid "overview"
-msgstr "Übersicht"
+#: templates/tippspiel/matchday_list.html:17
+msgid "All matches"
+msgstr "Alle Spiele"
 
-#: templates/tippspiel/player_detail.html:6
+#: templates/tippspiel/overview.html:12
+msgid "Welcome back"
+msgstr "Willkommen zurück"
+
+#: templates/tippspiel/overview.html:14
+msgid "place"
+msgstr "Platz"
+
+#: templates/tippspiel/overview.html:15 templates/tippspiel/overview.html:36
+#: templates/tippspiel/player_list.html:15
+#: templates/tippspiel/match/matchday_detail_match_started.html:20
+msgid "points"
+msgstr "Punkte"
+
+#: templates/tippspiel/overview.html:20
+msgid "Upcoming Matchdays"
+msgstr "Anstehende Spieltage"
+
+#: templates/tippspiel/overview.html:26
+msgid "No upcoming matchdays"
+msgstr "Keine anstehenden Spieltage"
+
+#: templates/tippspiel/overview.html:31
+msgid "Players"
+msgstr "Spieler"
+
+#: templates/tippspiel/password_change.html:6
+msgid "Change password"
+msgstr "Passwort ändern"
+
+#: templates/tippspiel/player_detail.html:13
+msgid "Rank"
+msgstr "Platz"
+
+#: templates/tippspiel/player_detail.html:14
+msgid "Score"
+msgstr "Punktzahl"
+
+#: templates/tippspiel/player_list.html:6
+msgid "Ranking"
+msgstr "Rangliste"
+
+#: templates/tippspiel/settings.html:7
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: templates/tippspiel/settings.html:13
+msgid "Change your password"
+msgstr "Ändere dein Passwort"
+
+#: templates/tippspiel/settings.html:16
+msgid "Change your avatar at gravatar.com"
+msgstr "Ändere deinen Avatar auf gravatar.com"
+
+#: templates/tippspiel/settings.html:19
+msgid "Logout"
+msgstr "Ausloggen"
+
+#: templatetags/gravatar.py:12
 msgid "Gravatar for"
 msgstr "Gravatar für"
 
-#: templates/tippspiel/player_list.html:6
-#, fuzzy
-msgid "ranking"
-msgstr "Rangliste"
-
-#: templates/tippspiel/player_list.html:12
-msgid "The current ranking."
-msgstr "Die aktuelle Rangliste."
-
-#: templates/tippspiel/player_list.html:15
-msgid "rank"
-msgstr "Rang"
-
-#: templates/tippspiel/player_list.html:16
-msgid "player"
-msgstr "Spieler"
-
-#: templates/tippspiel/player_list.html:17
-msgid "score"
-msgstr "Punktzahl"
+msgid "Overview"
+msgstr "Übersicht"

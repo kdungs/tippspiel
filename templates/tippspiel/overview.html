@@ -9,7 +9,7 @@
 <section data-role="content">
 
     <div class="tippspiel_overview_header">
-        <h1>Welcome back, {{ user.username }}!</h1>
+        <h1>{% trans "Welcome back" %}, {{ user.username }}!</h1>
         <div class="badges">
             <p class="rank">{{ player.rank }}. {% trans "place" %}</p>
             <p class="score">{{ player.score }} {% trans "points" %}</p>
@@ -17,7 +17,7 @@
     </div>
 
     <ul data-role="listview" data-inset="true">
-        <li data-role="list-divider">Upcoming Matchdays</li>
+        <li data-role="list-divider">{% trans "Upcoming Matchdays" %}</li>
         {% for upcoming_matchday in upcoming_matchdays %}
         <li>
             <a href="{% url tippspiel_matchday_detail matchday_number=upcoming_matchday %}">{{ upcoming_matchday}}. {% trans "Matchday" %}</a>
@@ -28,7 +28,7 @@
     </ul>
 
     <ul data-role="listview" data-inset="true">
-        <li data-role="list-divider">Top {{ top_players|length }} Players</li>
+        <li data-role="list-divider">Top {{ top_players|length }} {% trans "Players" %}</li>
         {% for tp in top_players %}
         <li{% ifequal tp.pk user.pk %} data-theme="e"{% endifequal %}><a href="{% url tippspiel_player_detail player_name=tp.user.username %}">
             {% gravatar_img tp %}
