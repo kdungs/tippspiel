@@ -64,7 +64,7 @@ def install():
 
     # --- STEP 3 -----------
     from tippspiel.models import Team, Match
-    from datetime import datetime
+    from django.utils import timezone
 
     for handle, name in teams.items():
         t = Team(handle=handle, name=name)
@@ -76,7 +76,7 @@ def install():
         print('Finished inserting teams.')
 
     for match in sorted_matches:
-        date = datetime.utcfromtimestamp(match['timestamp'])
+        date = datetime.fromtimestamp(match['timestamp'])
         matchday = match['matchday']
         team_home=Team.objects.get(handle=match['team_home_handle'])
         team_visitor=Team.objects.get(handle=match['team_visitor_handle'])
