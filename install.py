@@ -64,7 +64,7 @@ def install():
 
     # --- STEP 3 -----------
     from tippspiel.models import Team, Match
-    from django.utils import timezone
+    from datetime import datetime
 
     for handle, name in teams.items():
         t = Team(handle=handle, name=name)
