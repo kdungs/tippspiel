@@ -17,7 +17,7 @@ import re
 @login_required
 def overview(request):
     player = get_object_or_404(Player, user=request.user)
-    top_players = Player.objects.order_by('score').reverse()[:3]
+    top_players = Player.objects.order_by('-score', 'user__username')[:3]
     upcoming_matchday = Match.objects.filter(date__gt=timezone.now()).order_by('date')[0].matchday
     upcoming_matchdays = filter(lambda x: x<35, [upcoming_matchday+i for i in (0, 1, 2)])
     return render_to_response(

@@ -74,7 +74,7 @@ urlpatterns += patterns('tippspiel.views',
     url(
         r'^ranking/$',
         login_required(ListView.as_view(
-            queryset=Player.objects.order_by('rank'),
+            queryset=Player.objects.order_by('-score', 'user__username'),
             context_object_name='players',
             template_name='tippspiel/player_list.html'
         )),
