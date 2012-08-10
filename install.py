@@ -65,6 +65,9 @@ def install():
     # --- STEP 3 -----------
     from tippspiel.models import Team, Match
     from datetime import datetime
+    import pytz
+
+    tz_berlin = pytz.timezone("Europe/Berlin")
 
     for handle, name in teams.items():
         t = Team(handle=handle, name=name)
@@ -77,6 +80,7 @@ def install():
 
     for match in sorted_matches:
         date = datetime.fromtimestamp(match['timestamp'])
+        date.replace(tzinfo=tz_berlin)
         matchday = match['matchday']
         team_home=Team.objects.get(handle=match['team_home_handle'])
         team_visitor=Team.objects.get(handle=match['team_visitor_handle'])
