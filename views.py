@@ -52,7 +52,7 @@ def matchday_detail(request, matchday_number):
                     match = get_object_or_404(Match, pk=match_id)
                     if not match.has_started():
                         try:
-                            tipp = Tipp.objects.get(match__id=match_id)
+                            tipp = Tipp.objects.get(player__user=request.user, match__id=match_id)
                         except:
                             tipp = None
                         score_home = m.group('score_home')
