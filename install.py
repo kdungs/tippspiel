@@ -70,10 +70,14 @@ def install():
     tz_berlin = pytz.timezone("Europe/Berlin")
 
     for handle, name in teams.items():
-        t = Team(handle=handle, name=name)
-        t.save()
+        t, created = Team.objects.get_or_create(handle=handle, defaults={'name': name})
+        if created:
+            t.save()
         if DEBUG:
-            print('Inserted team %s.' % name)
+            if created:
+                print('Inserted team %s.' % name)
+            else:
+                print('Team %s already exists.' % name)
 
     if DEBUG:
         print('Finished inserting teams.')
@@ -85,18 +89,27 @@ def install():
         team_home=Team.objects.get(handle=match['team_home_handle'])
         team_visitor=Team.objects.get(handle=match['team_visitor_handle'])
 
-        m = Match(
-            date=date,
+        m, created = Match.objects.get_or_create(
             matchday=matchday,
             team_home=team_home,
-            team_visitor=team_visitor
+            team_visitor = team_visitor,
+            defaults = {
+                'date': date
+            }
         )
+        if not created:
+            m.date = date
+
         m.save()
+
         if DEBUG:
-            print('Inserted match %s' % m)
+            if created:
+                print('Inserted match %s' % m)
+            else:
+                print('Updated match %s' % m)
 
     if DEBUG:
-        print('Finished inserting matches.')
+        print('Finished inserting/updating matches.')
 
 
 
