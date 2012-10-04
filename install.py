@@ -15,7 +15,7 @@ def install():
         for f in FILES:
             if DEBUG:
                 print('Fetching %s' % f)
-            for line in smart_str(requests.get(f).text).split('\n')[1:]:
+            for line in smart_str(requests.get(f).content).split('\n')[1:]:
                 if not line.startswith('matchdetails = new Array();'):
                         target.write('%s\n' % (line.replace(';', '').replace('new Array()', '{}')))
 
