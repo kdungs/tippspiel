@@ -33,7 +33,7 @@ The icons of the teams are property of their respective owners. They are not inc
 All of the code in this project, if not stated otherwise, is licensed under the terms of the MIT License.
 
     The MIT License (MIT)
-    Copyright (c) 2012 Kevin D. (https://github.com/SirCoemgen)
+    Copyright (c) 2012 Kevin Dungs (https://github.com/kdungs)
 
     Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
